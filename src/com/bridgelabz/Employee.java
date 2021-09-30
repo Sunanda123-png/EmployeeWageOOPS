@@ -6,7 +6,8 @@ package com.bridgelabz;
 
 public class Employee {
     private final static int IS_FULL_TIME = 1;
-    private final static int Fullday_hr = 8;
+    private final static int PART_TIME = 2;
+    private final static int Fullday_hr = 8,PART_TIME_hr = 4;
     private final static int Wages_per_hr=20;
 
 
@@ -14,14 +15,19 @@ public class Employee {
      * Purpose - checks whether an Employee is present or absent
      *
      */
-    public static int calculation()
+    public int calculation()
     {
         int Working_hr_perday;
-        int empCheck = (int)Math.floor(Math.random()*10)%2;
+        int empCheck = (int)Math.floor(Math.random()*10)%3;
         if (empCheck==IS_FULL_TIME)
         {
             System.out.println("Employee is present");
             Working_hr_perday=Fullday_hr;
+        }
+        else if (empCheck==PART_TIME)
+        {
+            System.out.println("Employee is part time present");
+            Working_hr_perday=PART_TIME_hr;
         }
         else
         {
