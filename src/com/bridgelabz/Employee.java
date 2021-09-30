@@ -15,24 +15,25 @@ public class Employee {
      * Purpose - checks whether an Employee is present or absent
      *
      */
-    public int calculation()
+    public int switch_Case()
     {
         int Working_hr_perday;
         int empCheck = (int)Math.floor(Math.random()*10)%3;
-        if (empCheck==IS_FULL_TIME)
+        switch (empCheck)
         {
-            System.out.println("Employee is present");
-            Working_hr_perday=Fullday_hr;
-        }
-        else if (empCheck==PART_TIME)
-        {
-            System.out.println("Employee is part time present");
-            Working_hr_perday=PART_TIME_hr;
-        }
-        else
-        {
-            System.out.println("Employee is not present");
-            Working_hr_perday=0;
+            case IS_FULL_TIME:
+                System.out.println("Employee is present");
+                Working_hr_perday=Fullday_hr;
+                break;
+
+            case PART_TIME:
+                System.out.println("Employee is part time present");
+                Working_hr_perday=PART_TIME_hr;
+                break;
+
+            default:
+                System.out.println("Employee is not present");
+                Working_hr_perday=0;
 
         }
         return Working_hr_perday;
@@ -58,7 +59,7 @@ public class Employee {
     public static void main(String[] args)
     {
         Employee employeeWage=new Employee();
-        int Working_hr_perday=employeeWage.calculation();
+        int Working_hr_perday=employeeWage.switch_Case();
         employeeWage.daily_employee_wage(Working_hr_perday);
     }
 }
