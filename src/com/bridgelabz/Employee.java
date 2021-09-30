@@ -5,10 +5,11 @@ package com.bridgelabz;
  */
 
 public class Employee {
-    private final static int IS_FULL_TIME = 1;
-    private final static int PART_TIME = 2;
+    private final static int IS_FULL_TIME = 1, PART_TIME = 2;
     private final static int Fullday_hr = 8,PART_TIME_hr = 4;
     private final static int Wages_per_hr=20;
+    private final static int Total_Working_days=20;
+
 
 
     /**
@@ -44,12 +45,12 @@ public class Employee {
      * @param Working_hr_perday
      * @return
      */
-    public int daily_employee_wage(int Working_hr_perday)
+    public int monthly_employee_wage(int Working_hr_perday)
     {
 
-        int daily_employee_wage=Wages_per_hr*Working_hr_perday;
-        System.out.println("Daily wages of the employee is:-"+daily_employee_wage);
-        return daily_employee_wage;
+        int monthly_employee_wage=Wages_per_hr*Working_hr_perday*Total_Working_days;
+        System.out.println("Daily wages of the employee is:-"+monthly_employee_wage);
+        return monthly_employee_wage;
     }
 
     /**
@@ -60,7 +61,7 @@ public class Employee {
     {
         Employee employeeWage=new Employee();
         int Working_hr_perday=employeeWage.switch_Case();
-        employeeWage.daily_employee_wage(Working_hr_perday);
+        employeeWage.monthly_employee_wage(Working_hr_perday);
     }
 }
 
