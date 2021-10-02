@@ -6,67 +6,49 @@ package com.bridgelabz;
 
 public class Employee {
     private final static int IS_FULL_TIME = 1, PART_TIME = 2;
-    private final static int Fullday_hr = 8,PART_TIME_hr = 4;
-    private final static int Wages_per_hr=20;
-    private final static int Total_Working_days=20;
-    private final static int Total_Working_hrs=100;
-
-
     /**
      * Purpose - checks whether an Employee is present or absent
      *
      */
-    public int switch_Case()
+    public static int computeEmpWages(String company,int Wages_per_hr,int numofTotal_Working_days,int Total_Working_hr)
     {
-        int Working_hr_perday;
+        int empHrs=0, totalEmphrs=0,totalWorkingDays=0;        //variables
+        //int Working_hr_perday;
         int empCheck = (int)Math.floor(Math.random()*10)%3;
-        while (Total_Working_hrs<101 && Total_Working_days<21) //condition given
+        while (totalEmphrs<Total_Working_hr && totalWorkingDays<numofTotal_Working_days) //condition given
         {
-            switch (empCheck) {
+            totalWorkingDays++;
+            switch (empCheck)
+            {
                 case IS_FULL_TIME:
                     System.out.println("Employee is present");
-                    Working_hr_perday = Fullday_hr;
+                    empHrs=8;
                     break;
 
                 case PART_TIME:
                     System.out.println("Employee is part time present");
-                    Working_hr_perday = PART_TIME_hr;
+                    empHrs=4;
                     break;
 
                 default:
                     System.out.println("Employee is not present");
-                    Working_hr_perday = 0;
+                    empHrs=0;
 
             }
-            return Working_hr_perday;
+            totalEmphrs+=empHrs;
+            System.out.println("Day:"+totalWorkingDays+ "Emp Hr:" +empHrs);
         }
+        int TotalEmpWages=totalEmphrs*Wages_per_hr;//calculation
+        System.out.println("Total Employee wages of the company is:-"+company+"is:"+ TotalEmpWages);
+        return TotalEmpWages;
     }
-
-    /**
-     * calculation of daily wages
-     * @param Working_hr_perday
-     * @return
-     */
-    public int monthly_employee_wage(int Working_hr_perday)
-    {
-
-        int monthly_employee_wage=Wages_per_hr*Working_hr_perday*Total_Working_days;
-        System.out.println("Daily wages of the employee is:-"+monthly_employee_wage);
-        return monthly_employee_wage;
-    }
-
-    /**
-     * execution of all method
-     * @param args
-     */
-
 }
 class Final
 {
     public static void main(String[] args)
     {
         Employee employeeWage=new Employee();
-        int Working_hr_perday=employeeWage.switch_Case();
-        employeeWage.monthly_employee_wage(Working_hr_perday);
+        employeeWage.computeEmpWages("Dmart",20,20,10);
+        employeeWage.computeEmpWages("Amazon",30,18,20);
     }
 }
