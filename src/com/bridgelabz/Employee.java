@@ -59,6 +59,10 @@ public class Employee {
      * execution of all method
      * @param args
      */
+
+}
+class Final
+{
     public static void main(String[] args)
     {
         Employee employeeWage=new Employee();
@@ -66,4 +70,3 @@ public class Employee {
         employeeWage.monthly_employee_wage(Working_hr_perday);
     }
 }
-
