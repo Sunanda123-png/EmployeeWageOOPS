@@ -5,12 +5,26 @@ package com.bridgelabz;
  */
 
 public class Employee {
-    private final static int IS_FULL_TIME = 1, PART_TIME = 2;
+    public static final int IS_FULL_TIME = 1,PART_TIME =2;
+    private final String company;
+    private final int Wages_per_hr;
+    private final int numofTotal_Working_days;
+    private final int Total_Working_hr;
+    private int TotalEmpWages;
+
+    public Employee(String company,int Wages_per_hr,int numofTotal_Working_days,int Total_Working_hr)
+    {
+        this.company=company;
+        this.Wages_per_hr=Wages_per_hr;
+        this.numofTotal_Working_days=numofTotal_Working_days;
+        this.Total_Working_hr=Total_Working_hr;
+    }
     /**
      * Purpose - checks whether an Employee is present or absent
      *
      */
-    public static int computeEmpWages(String company,int Wages_per_hr,int numofTotal_Working_days,int Total_Working_hr)
+
+    public void computeEmpWages()
     {
         int empHrs=0, totalEmphrs=0,totalWorkingDays=0;        //variables
         //int Working_hr_perday;
@@ -38,17 +52,23 @@ public class Employee {
             totalEmphrs+=empHrs;
             System.out.println("Day:"+totalWorkingDays+ "Emp Hr:" +empHrs);
         }
-        int TotalEmpWages=totalEmphrs*Wages_per_hr;//calculation
-        System.out.println("Total Employee wages of the company is:-"+company+"is:"+ TotalEmpWages);
-        return TotalEmpWages;
+        TotalEmpWages=totalEmphrs*Wages_per_hr;//calculation
+
+    }
+    public String toString()
+    {
+        return "Total Employee wages of the company is:-"+company+"is:"+ TotalEmpWages;
     }
 }
 class Final
 {
     public static void main(String[] args)
     {
-        Employee employeeWage=new Employee();
-        employeeWage.computeEmpWages("Dmart",20,20,10);
-        employeeWage.computeEmpWages("Amazon",30,18,20);
+        Employee dmart=new Employee("dmart", 20, 20, 10);
+        Employee amazon=new Employee("Amazon", 30, 18, 10);
+        dmart.computeEmpWages();
+        System.out.println(dmart);
+        amazon.computeEmpWages();
+        System.out.println(amazon);
     }
 }
